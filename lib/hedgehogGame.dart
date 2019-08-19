@@ -81,7 +81,7 @@ class HedgehogGame extends Game {
     screenSize = size;
     hedgehogTileSize = screenSize.width / 10;
     appleTileSize = hedgehogTileSize / 3;
-    hedgehogY = screenSize.height - 2 * hedgehogTileSize;
+    hedgehogY = screenSize.height - hedgehogTileSize;
   }
 
   void spawnChichi() {
@@ -89,8 +89,8 @@ class HedgehogGame extends Game {
   }
 
   void spawnApple() {
-    double x = rnd.nextDouble() * (screenSize.width - appleTileSize);
-    apples.add(Apple(this, x, 0));
+    double x = rnd.nextDouble() * (screenSize.width - 2 * hedgehogTileSize);
+    apples.add(Apple(this, x + hedgehogTileSize, 0 - appleTileSize));
   }
 
 }
